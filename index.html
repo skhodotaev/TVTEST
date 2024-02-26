@@ -11,17 +11,6 @@
 
 <body>
     <div id="chartContainer"></div>
-    <script>
-        new TradingView.widget({
-            container: 'chartContainer',
-            locale: 'en',
-            library_path: 'charting_library/',
-            datafeed: new Datafeeds.UDFCompatibleDatafeed("https://demo-feed-data.tradingview.com"),
-            symbol: 'AAPL',
-            interval: '1D',
-            fullscreen: true,
-            debug: true
-        });
-    </script>
+    <script type="module" src="scripts/index.js"></script>
 </body>
 </html>
