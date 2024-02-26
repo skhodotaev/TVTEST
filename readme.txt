@@ -1,0 +1,1 @@
+https://www.tradingview.com/charting-library-docs/latest/tutorials/First-Run-Tutorial
