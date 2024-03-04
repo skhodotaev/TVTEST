@@ -1,6 +1,6 @@
-import { TvDefaultSymbol } from "../DataFeed/TvDefaultSymbol";
-import { AccountManagerInfo, ActionMetaInfo, Brackets, ConnectionStatus, CustomInputFieldsValues, DefaultContextMenuActionsParams, Execution, IBrokerConnectionAdapterHost, IBrokerTerminal, INumberFormatter, InstrumentInfo, IsTradableResult, LeverageInfo, LeverageInfoParams, LeveragePreviewResult, LeverageSetParams, LeverageSetResult, Order, OrderDialogOptions, OrderPreviewResult, PlaceOrderResult, Position, PositionDialogOptions, PreOrder, QuantityMetainfo, Side, SymbolType, Trade, TradeContext } from "../charting_library";
-import { accountSummaryColumns, ordersPageColumns, positionsPageColumns } from "./TvColumns";
+import { TvDefaultSymbol } from "../DataFeed/TvDefaultSymbol.js";
+import { AccountManagerInfo, ActionMetaInfo, Brackets, ConnectionStatus, CustomInputFieldsValues, DefaultContextMenuActionsParams, Execution, IBrokerConnectionAdapterHost, IBrokerTerminal, IDatafeedChartApi, IDatafeedQuotesApi, INumberFormatter, InstrumentInfo, IsTradableResult, LeverageInfo, LeverageInfoParams, LeveragePreviewResult, LeverageSetParams, LeverageSetResult, Order, OrderDialogOptions, OrderPreviewResult, PlaceOrderResult, Position, PositionDialogOptions, PreOrder, QuantityMetainfo, Side, SymbolType, Trade, TradeContext } from "../charting_library";
+import { accountSummaryColumns, ordersPageColumns, positionsPageColumns } from "./TvColumns.js";
 
 export class TvBrokerTerminal implements IBrokerTerminal {
 

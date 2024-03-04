@@ -1,5 +1,5 @@
-import { DatafeedConfiguration, IDatafeedChartApi, IDatafeedQuotesApi, IDestroyable, LibrarySymbolInfo, OnReadyCallback, ResolutionString, ResolveCallback, SearchSymbolResultItem, SearchSymbolsCallback, SymbolResolveExtension, ErrorCallback, PeriodParams, HistoryCallback, SubscribeBarsCallback, QuotesCallback, QuotesErrorCallback, DOMCallback } from "../charting_library";
-import { TvDefaultSymbol } from "./TvDefaultSymbol";
+import { DatafeedConfiguration, IDatafeedChartApi, IDatafeedQuotesApi, IDestroyable, LibrarySymbolInfo, OnReadyCallback, ResolutionString, ResolveCallback, SearchSymbolResultItem, SearchSymbolsCallback, SymbolResolveExtension, ErrorCallback, PeriodParams, HistoryCallback, SubscribeBarsCallback, QuotesCallback, QuotesErrorCallback, DOMCallback, DatafeedQuoteValues, QuoteData } from "../charting_library";
+import { TvDefaultSymbol } from "./TvDefaultSymbol.js";
 
 export class TvDataFeed implements IDatafeedChartApi, IDatafeedQuotesApi {
 
@@ -83,6 +83,43 @@ export class TvDataFeed implements IDatafeedChartApi, IDatafeedQuotesApi {
     // #region IDatafeedQuotesApi - works only for trading platform
 
     public getQuotes (symbols: string[], onDataCallback: QuotesCallback, onErrorCallback: QuotesErrorCallback): void {
+        
+        setTimeout(() => {
+            console.log('getQuotes');
+            console.log(symbols);
+
+            const quoteValues: DatafeedQuoteValues ={
+                ask: 2,
+                bid: 1,
+                ch: 1,
+                chp: 0.1,
+                description: TvDefaultSymbol.description,
+                exchange: TvDefaultSymbol.exchange,
+                high_price: 2,
+                low_price: 1,
+                lp: 2,
+                open_price: 1,
+                original_name: TvDefaultSymbol.full_name, //?
+                prev_close_price: 1,
+                short_name: TvDefaultSymbol.name, //?
+                spread: 2-1,
+                volume: 1
+            };
+
+            const quoteDataArray: QuoteData[] = [];
+
+            for (const symbol of symbols) {
+                const quoteData: QuoteData = {
+                    n: symbol, //TvDefaultSymbol.full_name as string,
+                    s: 'ok',
+                    v: quoteValues
+                };
+                quoteDataArray.push(quoteData);
+            }
+    
+            console.log(quoteDataArray);
+            onDataCallback(quoteDataArray);
+        }, 0);
     }
 
     public subscribeQuotes (symbols: string[], fastSymbols: string[], onRealtimeCallback: QuotesCallback, listenerGUID: string): void {   
