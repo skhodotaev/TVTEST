@@ -1,5 +1,5 @@
 charting_library/
 datafeeds/
 node_modules/
-scripts/*.js
+scripts/**/*.js
 scripts/charting_library.ts
