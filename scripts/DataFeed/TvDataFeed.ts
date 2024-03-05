@@ -34,7 +34,7 @@ export class TvDataFeed implements IDatafeedChartApi, IDatafeedQuotesApi {
         setTimeout(() => {
             const resultItem : SearchSymbolResultItem = {
                 symbol: TvDefaultSymbol.name,
-                full_name: TvDefaultSymbol.full_name,
+                full_name: TvDefaultSymbol.name,
                 description: TvDefaultSymbol.description,
                 exchange: TvDefaultSymbol.exchange,
                 ticker: TvDefaultSymbol.ticker,
@@ -51,7 +51,6 @@ export class TvDataFeed implements IDatafeedChartApi, IDatafeedQuotesApi {
             {
                 name: TvDefaultSymbol.name,
                 ticker: TvDefaultSymbol.ticker,
-                full_name: TvDefaultSymbol.full_name,
                 description: TvDefaultSymbol.description,
                 type: TvDefaultSymbol.type,
                 session: TvDefaultSymbol.session,
@@ -99,7 +98,7 @@ export class TvDataFeed implements IDatafeedChartApi, IDatafeedQuotesApi {
                 low_price: 1,
                 lp: 2,
                 open_price: 1,
-                original_name: TvDefaultSymbol.full_name, //?
+                original_name: TvDefaultSymbol.name, //?
                 prev_close_price: 1,
                 short_name: TvDefaultSymbol.name, //?
                 spread: 2-1,

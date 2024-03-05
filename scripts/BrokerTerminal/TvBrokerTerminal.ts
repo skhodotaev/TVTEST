@@ -1,5 +1,5 @@
 import { TvDefaultSymbol } from "../DataFeed/TvDefaultSymbol.js";
-import { AccountManagerInfo, ActionMetaInfo, Brackets, ConnectionStatus, CustomInputFieldsValues, DefaultContextMenuActionsParams, Execution, IBrokerConnectionAdapterHost, IBrokerTerminal, IDatafeedChartApi, IDatafeedQuotesApi, INumberFormatter, InstrumentInfo, IsTradableResult, LeverageInfo, LeverageInfoParams, LeveragePreviewResult, LeverageSetParams, LeverageSetResult, Order, OrderDialogOptions, OrderPreviewResult, PlaceOrderResult, Position, PositionDialogOptions, PreOrder, QuantityMetainfo, Side, SymbolType, Trade, TradeContext } from "../charting_library";
+import { AccountId, AccountManagerInfo, AccountMetainfo, ActionMetaInfo, Brackets, ConnectionStatus, CustomInputFieldsValues, DefaultContextMenuActionsParams, Execution, IBrokerConnectionAdapterHost, IBrokerTerminal, IDatafeedChartApi, IDatafeedQuotesApi, INumberFormatter, InstrumentInfo, IsTradableResult, LeverageInfo, LeverageInfoParams, LeveragePreviewResult, LeverageSetParams, LeverageSetResult, Order, OrderDialogOptions, OrderPreviewResult, PlaceOrderResult, Position, PositionDialogOptions, PreOrder, QuantityMetainfo, Side, SymbolType, TradeContext } from "../charting_library";
 import { accountSummaryColumns, ordersPageColumns, positionsPageColumns } from "./TvColumns.js";
 
 export class TvBrokerTerminal implements IBrokerTerminal {
@@ -91,9 +91,9 @@ export class TvBrokerTerminal implements IBrokerTerminal {
     positions?(): Promise<Position[]> {
         return Promise.resolve([]);
     }
-    trades?(): Promise<Trade[]> {
-        return Promise.resolve([]);
-    }
+    // trades?(): Promise<Trade[]> {
+    //     return Promise.resolve([]);
+    // }
     executions(symbol: string): Promise<Execution[]> {
         return Promise.resolve([]);
     }
@@ -169,5 +169,24 @@ export class TvBrokerTerminal implements IBrokerTerminal {
     // getPositionDialogOptions?(): PositionDialogOptions | undefined {
     //     throw new Error("Method not implemented.");
     // }
+
+    public accountsMetainfo(): Promise<AccountMetainfo[]>
+    {   
+        const accountMetainfo: AccountMetainfo = {
+            id: '1' as AccountId,
+            name: 'TestAccountName',
+            currency: 'AccountCurrency',
+        };
+
+        return Promise.resolve([accountMetainfo]);
+    }
+    public currentAccount(): AccountId
+    {
+        return '1' as AccountId;
+    }
+    public setCurrentAccount?(id: AccountId): void
+    {
+
+    }
 
 }

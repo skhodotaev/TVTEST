@@ -4,7 +4,6 @@ export const TvDefaultSymbol: LibrarySymbolInfo =
 {
     ticker: 'ticker',
     name: 'name',
-    full_name: 'full_name',
     description: 'description',
     type: 'forex',
     session: '24x7',
